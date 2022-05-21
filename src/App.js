@@ -1,10 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './pages/Headers/Navbar';
 
 function App() {
   return (
     <div className="App">
-     <h1>I am ak parts house</h1>
+     <Navbar></Navbar>
     </div>
   );
 }
