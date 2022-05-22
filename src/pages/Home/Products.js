@@ -14,7 +14,7 @@ const Products = () => {
            <div>
                <h1 className='text-secondary text-5xl font-bold my-6'>Our Products service</h1>
            </div>
-
+            
          <div className='grid  lg:grid-cols-2 gap-4' >
             {
                 products.map(product => <Product product={product} key={product._id}></Product>)
