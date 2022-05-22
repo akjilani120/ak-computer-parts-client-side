@@ -7,42 +7,49 @@ import { toast } from 'react-toastify';
 
 const SingleProduct = () => {
     const [products, setProducts] = useState(true)
-    const { register, handleSubmit } = useForm();
-    const [user] = useAuthState(auth)  
+    const { register, handleSubmit,formState: { errors } } = useForm();
+    const [user] = useAuthState(auth)
     const { id } = useParams()
     const [product, setProduct] = useState([])
     const { img, name, description, minimunQuantity, maximumQuantity, perUnitPrice, _id } = product
-    
+
     useEffect(() => {
         fetch(`http://localhost:5000/products/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [id])
-    const onSubmit = data =>{       
+    const onSubmit = data => {
         const priceField = parseInt(perUnitPrice) * data.quantity;
-      
-       const purchase ={
-           userName : data.name,
-           userEmail : data.email,
-           quantity : data.quantity,
-           productName: name,
-           phone: data.phone,
-           price : priceField,
-           PurshId: _id 
-       }
-       fetch('http://localhost:5000/orders',{
-       method:"POST",
-       headers:{
-           "content-type":"applicaion/json"
-       },
-       body: JSON.stringify(purchase)
-       })
-       .then(res => res.json())
-       .then( data =>{
-           console.log(data)
-           setProducts(false)
-           
-       })
+
+        const purchase = {
+            userName: data.name,
+            userEmail: data.email,
+            quantity: data.quantity,
+            productName: name,
+            phone: data.phone,
+            price: priceField,
+            PurshId: _id
+        }
+        fetch('http://localhost:5000/orders', {
+            method: "POST",
+            headers: {
+                "content-type": "applicaion/json"
+            },
+            body: JSON.stringify(purchase)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if(data){
+                    console.log(data)
+                    toast.success("Your purshes successfully ")
+                }else{
+                    toast.error("Your purshes not successfully")
+                }
+               
+               
+                setProducts(false)
+
+            })
     };
     return (
         <div >
@@ -62,19 +69,28 @@ const SingleProduct = () => {
                         <input type="checkbox" id="parshes-modal" class="modal-toggle" />
                         <div class="modal ">
                             <div class="modal-box bg-info">
-                            <label for="parshes-modal" class="btn btn-secondary btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                 <h3 className='text-center text-secondary my-2 text-2xl font-bold'>ORDAR NOW</h3>
+                                <label for="parshes-modal" class="btn btn-secondary btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                <h3 className='text-center text-secondary my-2 text-2xl font-bold'>ORDAR NOW</h3>
                                 <form onSubmit={handleSubmit(onSubmit)}>
-                                <input type='text' class="input input-bordered input-info w-full max-w-xs my-2" value={user.displayName} {...register("name")} />
-                                <input type='email' class="input input-bordered input-info w-full max-w-xs my-2" value={user.email} {...register("email")} />
+                                    <input type='text' class="input input-bordered input-info w-full max-w-xs my-2" value={user.displayName} {...register("name")} />
+                                    <input type='email' class="input input-bordered input-info w-full max-w-xs my-2" value={user.email} {...register("email")} />
+                                    <label className='label'>
+                                        <input class="input input-bordered input-info w-full max-w-xs my-2" type="text"  {...register("quantity", { min: minimunQuantity, max: maximumQuantity })} placeholder="Add quantiry" />
+                                        <label class="label ">
+                                           
+                                            
+                                        </label>
+                                    </label>
+
+                                    <input class="input input-bordered input-info w-full max-w-xs my-2" type="text" {...register("phone")} placeholder="Phone number" />
+                                    <p className=''>
+                                        <span className='text-red-500 font-bold'>{errors.quantity?.type === 'min' && "Minimum quaity so low to our products"}</span>
+                                        <span className='text-red-500 font-bold'>{errors.quantity?.type === 'max' && "Maximum quaity hight to our products"}</span>
+                                    </p>
+                                    <input for="parshes-modal" className='btn btn-secondary px-10 text-white' type='submit' value="Submit" />
                                    
-                                    <input class="input input-bordered input-info w-full max-w-xs my-2" type="text"  {...register("quantity", {min:minimunQuantity , max:maximumQuantity} )} placeholder="Add quantiry" />                                   
-                                    <input class="input input-bordered input-info w-full max-w-xs my-2" type="text" {...register("phone") } placeholder="Phone number"/>
-                                    <div class="modal-action">
-                                    <input for="parshes-modal"  className='btn btn-secondary text-white'  type='submit' value="Submit" />
-                                </div>
                                 </form>
-                               
+
                             </div>
                         </div>
                     </div>

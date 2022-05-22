@@ -14,6 +14,9 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SingleProduct from './pages/Home/SingleProduct';
 import  RequireAuth from './pages/Shared/RequireAuth'
+import AddReviews from './pages/Dashboard/AddReviews';
+import MyOrders from './pages/Dashboard/MyOrders';
+import MyProfile from './pages/Dashboard/MyProfile';
 function App() {
   return (
     <div className="App">
@@ -23,7 +26,13 @@ function App() {
        <Route path='/home' element={<Home></Home>}></Route>
        <Route path='/about' element={<About></About>}></Route>
        <Route path='/blog' element={<Blog></Blog>}></Route>
-       <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
+       <Route path='/dashboard' element={<RequireAuth>
+        <Dashboard></Dashboard>
+       </RequireAuth>}>
+         <Route path='addReviews' element={<AddReviews></AddReviews>}></Route>
+         <Route path='myOrders' element={<MyOrders></MyOrders>}></Route>
+         <Route path='myProfile' element={<MyProfile></MyProfile>}></Route>
+       </Route>
        <Route path='/login' element={<Login></Login>}></Route>
        <Route path='/resiger' element={<Resiger></Resiger>}></Route>
        <Route path='/singleProduct/:id' element={<RequireAuth>
