@@ -1,0 +1,18 @@
+.business-overflow{
+    background-color: rgba(10, 10, 10, 0.486);
+    height: 70vh;
+    width: 100%;
+    background-attachment: fixed;
+}
+.business-bg{
+    height: 70vh;
+}
+
+@media screen and (max-width:850px) {
+    .business-bg{
+        height: 100vh;
+    }
+    .business-overflow{
+        height: 100vh; 
+    }
+}
