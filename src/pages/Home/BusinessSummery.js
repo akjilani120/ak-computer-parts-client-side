@@ -4,7 +4,7 @@ import './BusinessSummery.css'
 
 const BusinessSummery = () => {
     return (
-        <div className='banner-img business-bg my-6' style={{
+        <div className='banner-img business-bg mt-6' style={{
             backgroundImage: `url(${bgimg})`
         }} >
               
