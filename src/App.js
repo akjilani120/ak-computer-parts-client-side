@@ -12,6 +12,7 @@ import Footer from './pages/Shared/Footer';
 import Resiger from './pages/Login/Resiger';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SingleProduct from './pages/Home/SingleProduct';
 function App() {
   return (
     <div className="App">
@@ -24,6 +25,7 @@ function App() {
        <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
        <Route path='/login' element={<Login></Login>}></Route>
        <Route path='/resiger' element={<Resiger></Resiger>}></Route>
+       <Route path='/singleProduct/:id' element={<SingleProduct></SingleProduct>}></Route>
        <Route path='*' element={<NotFound></NotFound>}></Route>
      </Routes>
      <Footer></Footer>

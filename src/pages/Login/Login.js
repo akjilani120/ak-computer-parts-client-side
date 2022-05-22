@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import googleIcon from '../img/google.png'
 import { useForm } from "react-hook-form";
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
@@ -16,6 +16,10 @@ const Login = () => {
     const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate()
+   
+    let location = useLocation();   
+  
+    let from = location.state?.from?.pathname || "/";
     const onSubmit = ( data) => {       
         const email = data.email
         const password = data.password
@@ -27,7 +31,7 @@ const Login = () => {
     }
     let errorMessage ;
     if(user || guser){
-        navigate("/home")
+        navigate(from, { replace: true });
     }
     if(error || gerror){
         errorMessage = (error?.message || gerror?.message)
@@ -67,7 +71,7 @@ const Login = () => {
                         <p className=''>If have not an account? <button onClick={handleNavigate} className='text-primary font-bold'>Login  </button></p>
                         <p className='text-red-500'>{errorMessage}</p>
                     </div>
-                    <input className='btn btn-info btn-block text-white mt-5' type="submit" value="Sign Up" />
+                    <input className='btn btn-info btn-block text-white mt-5' type="submit" value="Login" />
                 </form>
 
                 <div class="flex flex-col w-full border-opacity-50">
