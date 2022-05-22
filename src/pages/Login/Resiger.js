@@ -21,7 +21,7 @@ const Resiger = () => {
         signInWithGoogle()
     }
     if(user || guser){
-        // navigate("/home")
+        navigate("/home")
     }
     let errorMessage ;
     if(error || gerror){
@@ -75,10 +75,10 @@ const Resiger = () => {
                         <label class="label">
                             <span class="label-text-alt text-red-500">{errors.password?.type === 'required' && "Password is required"}</span>
                         </label>
-                        <p className=''>If have an account? <button onClick={handleNavigate} className='text-primary font-bold'>Login</button></p>
+                        <p className=''>If have an account? <button onClick={handleNavigate} className='text-primary font-bold'>Sign Up</button></p>
                         <p className='text-red-500'>{errorMessage}</p>
                     </div>
-                    <input className='btn btn-info btn-block text-white mt-5' type="submit" value="Sign Up" />
+                    <input className='btn btn-info btn-block text-white mt-5' type="submit" value="Login" />
                 </form>
 
                 <div class="flex flex-col w-full border-opacity-50">
