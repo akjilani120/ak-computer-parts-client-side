@@ -1,15 +1,17 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+
 import Navbar from './pages/Headers/Navbar';
 import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Blog from './pages/Blog/Blog'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Login from './pages/Login/Login'
-
 import NotFound from './pages/NotFound/NotFound'
 import Footer from './pages/Shared/Footer';
 import Resiger from './pages/Login/Resiger';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <div className="App">
@@ -25,6 +27,7 @@ function App() {
        <Route path='*' element={<NotFound></NotFound>}></Route>
      </Routes>
      <Footer></Footer>
+     <ToastContainer />
     </div>
   );
 }
