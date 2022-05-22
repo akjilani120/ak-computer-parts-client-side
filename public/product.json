@@ -1,0 +1,52 @@
+[
+   
+  
+    {
+        "img":"https://i.ibb.co/1dpRvPQ/1.jpg",      
+        "name":"Computer Processor",
+        "description":"We have many store in processor.This processor quality is best",
+        "minimunQuantity":"10",
+        "maximumQuantity": "200",
+         "perUnitPrice":"2000"
+    },
+    {
+        "img":"https://i.ibb.co/Fh7b55r/hard-disk.jpg",      
+        "name":"Computer Hard Disk",
+        "description":"Computer hard disk has more brand.If you went just contact us",
+        "minimunQuantity": "20",
+        "maximumQuantity": "80",
+         "perUnitPrice":"1500"
+    },
+    {
+        "img":"https://i.ibb.co/pLzzS48/keyboard.jpg",      
+        "name":"Key board",
+        "description":"This key board quality is so good.We have more store",
+        "minimunQuantity": "30",
+        "maximumQuantity": "150",
+         "perUnitPrice":"200"
+    },
+    {
+        "img":"https://i.ibb.co/MpQcFyy/mouse.jpg",      
+        "name":"Mouse",
+        "description":"Our mouses looking so good.It is perfamence best",
+        "minimunQuantity": "30",
+        "maximumQuantity": "200",
+         "perUnitPrice":"120"
+    },
+    {
+        "img":"https://i.ibb.co/hHj4rSd/ram.jpg",      
+        "name":"Computer Ram",
+        "description":"Ram capacity is 500GB. This ram quality and perfamence so good",
+        "minimunQuantity": "10",
+        "maximumQuantity": "50",
+         "perUnitPrice":"2500"
+    },
+    {
+        "img":"  https://i.ibb.co/TqX5wc7/rom.png",      
+        "name":"Computer Rom",
+        "description":"Rom is very importent part on the computer.If this rom take me",
+        "minimunQuantity": "15",
+        "maximumQuantity": "40",
+         "perUnitPrice":"800"
+    }
+]
