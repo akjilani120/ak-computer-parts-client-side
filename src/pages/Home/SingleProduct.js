@@ -33,7 +33,7 @@ const SingleProduct = () => {
         fetch('http://localhost:5000/orders', {
             method: "POST",
             headers: {
-                "content-type": "applicaion/json"
+                "content-type": "application/json"
             },
             body: JSON.stringify(purchase)
         })
@@ -44,10 +44,9 @@ const SingleProduct = () => {
                     toast.success("Your purshes successfully ")
                 }else{
                     toast.error("Your purshes not successfully")
-                }
+                }              
                
                
-                setProducts(false)
 
             })
     };
