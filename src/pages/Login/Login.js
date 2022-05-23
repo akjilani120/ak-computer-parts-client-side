@@ -6,6 +6,7 @@ import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-fireba
 import auth from '../../firebase.init';
 
 import Loading from '../Shared/Loading';
+import TokenAccess from './TokenAccess';
 const Login = () => {
     const [
         signInWithEmailAndPassword,
@@ -29,8 +30,9 @@ const Login = () => {
     const handleGoogle =() =>{
         signInWithGoogle()
     }
+    const [token] = TokenAccess(user ||  guser)
     let errorMessage ;
-    if(user || guser){
+    if(token){
         navigate(from, { replace: true });
     }
     if(error || gerror){
@@ -68,7 +70,7 @@ const Login = () => {
                         <label class="label">
                             <span class="label-text-alt text-red-500">{errors.password?.type === 'required' && "Password is required"}</span>
                         </label>
-                        <p className=''>If have not an account? <button onClick={handleNavigate} className='text-primary font-bold'>Login  </button></p>
+                        <p className=''>If have not an account? <button onClick={handleNavigate} className='text-primary font-bold'>Sign Up</button></p>
                         <p className='text-red-500'>{errorMessage}</p>
                     </div>
                     <input className='btn btn-info btn-block text-white mt-5' type="submit" value="Login" />

@@ -6,6 +6,7 @@ import auth from '../../firebase.init'
 import { toast } from 'react-toastify';
 import Loading from '../Shared/Loading';
 import { useNavigate } from 'react-router-dom';
+import TokenAccess from './TokenAccess';
 const Resiger = () => {
     const navigate = useNavigate()
     const [updateProfile, updating, UpdateError] = useUpdateProfile(auth);
@@ -17,10 +18,12 @@ const Resiger = () => {
         error,
       ] = useCreateUserWithEmailAndPassword(auth);
       const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+     
     const handleGoogle =() =>{
         signInWithGoogle()
     }
-    if(user || guser){
+    const [token] = TokenAccess(user || guser)
+    if(token){
         navigate("/home")
     }
     let errorMessage ;
@@ -75,10 +78,10 @@ const Resiger = () => {
                         <label class="label">
                             <span class="label-text-alt text-red-500">{errors.password?.type === 'required' && "Password is required"}</span>
                         </label>
-                        <p className=''>If have an account? <button onClick={handleNavigate} className='text-primary font-bold'>Sign Up</button></p>
+                        <p className=''>If have an account? <button onClick={handleNavigate} className='text-primary font-bold'>Login</button></p>
                         <p className='text-red-500'>{errorMessage}</p>
                     </div>
-                    <input className='btn btn-info btn-block text-white mt-5' type="submit" value="Login" />
+                    <input className='btn btn-info btn-block text-white mt-5' type="submit" value="Sign UP" />
                 </form>
 
                 <div class="flex flex-col w-full border-opacity-50">

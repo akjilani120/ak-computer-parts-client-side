@@ -8,13 +8,12 @@ const MyProfile = () => {
     const email = user.email;
     const handleSubmit = event => {
         event.preventDefault()
-         const name= user.name;
+         const name = user.displayName;
          const email = user.email;
          const  education = event.target.education.value;
           const address = event.target.address.value;
           const phone = event.target.phone.value;
-          const img = event.target.image.value;
-          console.log("put data" , name, email, education, address, phone, img)
+          const img = event.target.image.value;         
         const updatPhofile = {
             name:name,
             email:email,
@@ -33,12 +32,12 @@ const MyProfile = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                toast("Your reviews is success.Thanks for reviews")
+                toast("Your profile update is success")
             })
     }
     return (
         <div className='flex justify-center items-center mt-5'>
-            <div class="card w-96 bg-base-100 shadow-xl bg-info ">
+            <div class="card w-9/12 bg-base-100 shadow-xl bg-info ">
                 <h1 className='text-secondary font-bold text-2xl mt-5'>Profile Update</h1>
                 <div class="card-body">
                     <form onSubmit={handleSubmit}>

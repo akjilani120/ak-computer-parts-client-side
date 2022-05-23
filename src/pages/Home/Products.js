@@ -4,10 +4,11 @@ import Product from './Product';
 const Products = () => {
     const [products , setProducts]= useState([])
     useEffect(() =>{
-        fetch('http://localhost:5000/products')
+        fetch('http://localhost:5000/products')       
     .then(res => res.json())
     .then(data => setProducts(data))
-    },[])
+    },[products])
+    const mainProduct = products.slice(0, 6)
     return (
         <div className='px-12' >
            
@@ -17,7 +18,7 @@ const Products = () => {
             
          <div className='grid  lg:grid-cols-2 gap-4' >
             {
-                products.map(product => <Product product={product} key={product._id}></Product>)
+                mainProduct.map(product => <Product product={product} key={product._id}></Product>)
             }
          </div>
         </div>
