@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import './AddReviews.css'
 const AddReviews = () => {
@@ -25,7 +26,7 @@ const AddReviews = () => {
      })  
      .then(res => res.json())
      .then(data => {
-         console.log(data)
+         toast("Your reviews is success.Thanks for reviews")        
      })
     }
     return (
