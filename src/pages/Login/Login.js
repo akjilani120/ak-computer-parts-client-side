@@ -50,13 +50,13 @@ const Login = () => {
                 <h3 className='text-info font-bold  text-3xl mb-5'> Login Now</h3>
                 <form onSubmit={handleSubmit(onSubmit)}>
                    
-                    <div className="text-left">
+                    <div className="text-left ">
 
                         <label class="label">
                             <span class="label-text">Email</span>
 
                         </label>
-                        <input type="email" {...register("email", { required: true })} class="input input-info input-bordered w-screen max-w-xs" />
+                        <input  type="email" className='input input-info w-full input-bordered w-full max-w-xs' {...register("email", { required: true })}  />
                         <label class="label">
                             <span class="label-text-alt text-red-500">{errors.email?.type === 'required' && "Email is required"}</span>
 
@@ -66,7 +66,7 @@ const Login = () => {
                         <label class="label">
                             <span class="label-text">Password</span>
                         </label>
-                        <input type="password" {...register("password", { required: true })} class="input input-info input-bordered w-screen max-w-xs" />
+                        <input type="password" {...register("password", { required: true })} class="input input-info input-bordered  w-screen max-w-xs" />
                         <label class="label">
                             <span class="label-text-alt text-red-500">{errors.password?.type === 'required' && "Password is required"}</span>
                         </label>

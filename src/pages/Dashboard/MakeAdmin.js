@@ -28,7 +28,7 @@ const MakeAdmin = () => {
     }
     return (
         <div>
-            <h1 className='text-info text-5xl font-bold my-10 underline decoration-info'>User List</h1>
+            <h1 className='text-info text-5xl font-bold my-10 underline decoration-info'>Admin List</h1>
             <div>
 
                 <div class="overflow-x-auto mb-10">
