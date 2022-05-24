@@ -36,7 +36,7 @@ const AddReviews = () => {
             <div class="hero min-h-screen bg-base-200">
                 <div class="hero-content flex-col lg:flex-row-reverse">
                     <div class="text-center  lg:text-left">
-                    <h1 className='text-5xl text-info '>Customers  Reviews</h1>
+                    <h1 className='text-5xl text-info font-bold '>Customers  Reviews</h1>
                         <p class="py-6">One of your comments is very much to us. We need to know what our parts are like. If it feels good then make good comments and give more rating points</p>
                     </div>
                     <div class="card flex-shrink-0 w-96 max-w-sm shadow-2xl bg-base-100">
