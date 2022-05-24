@@ -39,7 +39,7 @@ const MyProfile = () => {
     return (
         <div className='flex justify-center items-center mt-5'>
             <div class="card w-9/12 bg-base-100 shadow-xl bg-info ">
-                <h1 className='text-secondary font-bold text-2xl mt-5'>Profile Update</h1>
+                <h1 className='text-secondary font-bold text-2xl mt-5'>Your Profile and  required  Update</h1>
                 <div class="card-body">
                     <form onSubmit={handleSubmit}>
                         <div class="form-control mb-5">
@@ -64,25 +64,25 @@ const MyProfile = () => {
                             <label class="label">
                                 <span class="label-text text-white text-white">Add Your education</span>
                             </label>
-                            <input type="text" name='education'  placeholder="Education" class="input input-bordered"  />
+                            <input type="text" name='education'  placeholder="Education" class="input input-bordered"  required  />
                         </div>
                         <div class="form-control mb-5">
                             <label class="label">
                                 <span class="label-text text-white text-white">Add your Address</span>
                             </label>
-                            <input type="text" name='address'  placeholder="Address" class="input input-bordered"  />
+                            <input type="text" name='address'  placeholder="Address" class="input input-bordered" required   />
                         </div>
                         <div class="form-control mb-5">
                             <label class="label">
                                 <span class="label-text text-white text-white">Add your Phone Number</span>
                             </label>
-                            <input type="text" name='phone'  placeholder="Number" class="input input-bordered"  />
+                            <input type="text" name='phone'  placeholder="Number" class="input input-bordered"  required  />
                         </div>
                         <div class="form-control mb-5">
                             <label class="label">
                                 <span class="label-text text-white text-white">Add your Image Link</span>
                             </label>
-                            <input type="text" name='image'  placeholder="Image Link" class="input input-bordered" />
+                            <input type="text" name='image'  placeholder="Image Link" class="input input-bordered" required  />
                         </div>
                         <div class=" mt-6">
                             <input value='Update ' type="submit" class="btn btn-secondary text-white"></input>

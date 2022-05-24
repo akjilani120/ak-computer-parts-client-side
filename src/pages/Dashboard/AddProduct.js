@@ -14,7 +14,8 @@ const AddProduct = () => {
         const maximum = event.target.maximum.value;
         const price = event.target.price.value;
         const img = event.target.image.value;
-        const updatPhofile = {
+      
+        const addProduct = {
             name: name,
             description: description,
             minimumQuantity: minimum,
@@ -23,12 +24,12 @@ const AddProduct = () => {
             img: img
         }
   
-    fetch(`http://localhost:5000/products/${email}`, {
-        method: "PUT",
+    fetch(`http://localhost:5000/products`, {
+        method: "POST",
         headers: {
             'content-type': 'application/json'
         },
-        body: JSON.stringify(updatPhofile)
+        body: JSON.stringify(addProduct)
     })
         .then(res => res.json())
         .then(data => {
@@ -42,7 +43,7 @@ const AddProduct = () => {
         <div>
             <div className='flex justify-center items-center mt-5'>
                 <div class="card w-9/12 bg-base-100 shadow-xl bg-info ">
-                    <h1 className='text-secondary font-bold text-2xl mt-5'>Profile Update</h1>
+                    <h1 className='text-secondary font-bold text-2xl mt-5'>Add Product</h1>
                     <div class="card-body">
                         <form onSubmit={handleSubmit}>
                             <div class="form-control mb-5">
@@ -59,16 +60,17 @@ const AddProduct = () => {
                             </div>
                             <div class="form-control mb-5">
                                 <label class="label">
-                                    <span class="label-text text-white text-white">Add Minimum quaity</span>
-                                </label>
-                                <input type="text" name='minimum' placeholder="Minimum Quantity" class="input input-bordered"  required/>
-                            </div>
-                            <div class="form-control mb-5">
-                                <label class="label">
                                     <span class="label-text text-white text-white">Add Maximum quaity</span>
                                 </label>
                                 <input type="text" name='maximum' placeholder="Maximum Quantity" class="input input-bordered" required />
                             </div>
+                            <div class="form-control mb-5">
+                                <label class="label">
+                                    <span class="label-text text-white text-white">Add Minimum quaity</span>
+                                </label>
+                                <input type="text" name='minimum' placeholder="Minimum Quantity" class="input input-bordered"  required/>
+                            </div>
+                           
                             <div class="form-control mb-5">
                                 <label class="label">
                                     <span class="label-text text-white text-white">Add Per Unite  price</span>
@@ -82,7 +84,7 @@ const AddProduct = () => {
                                 <input type="text" name='image' placeholder="Image Link" class="input input-bordered" required />
                             </div>
                             <div class=" mt-6">
-                                <input value='Update ' type="submit" class="btn btn-secondary text-white"></input>
+                                <input value='ADD' type="submit" class="btn btn-secondary text-white px-12 py-4"></input>
                             </div>
                         </form>
                     </div>
