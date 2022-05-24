@@ -16,7 +16,7 @@ const Resiger = () => {
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+      ] = useCreateUserWithEmailAndPassword(auth,  {sendEmailVerification:true});
       const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
      
     const handleGoogle =() =>{

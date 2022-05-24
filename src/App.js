@@ -17,6 +17,7 @@ import  RequireAuth from './pages/Shared/RequireAuth'
 import AddReviews from './pages/Dashboard/AddReviews';
 import MyOrders from './pages/Dashboard/MyOrders';
 import MyProfile from './pages/Dashboard/MyProfile';
+import AddProduct from './pages/Dashboard/AddProduct';
 function App() {
   return (
     <div className="App">
@@ -32,6 +33,7 @@ function App() {
          <Route index element={<MyProfile></MyProfile>}></Route>
          <Route path='addReviews' element={<AddReviews></AddReviews>}></Route>
          <Route path='myOrders' element={<MyOrders></MyOrders>}></Route>
+         <Route path='addedProduct' element={<AddProduct></AddProduct>}></Route>
        </Route>
        <Route path='/login' element={<Login></Login>}></Route>
        <Route path='/resiger' element={<Resiger></Resiger>}></Route>

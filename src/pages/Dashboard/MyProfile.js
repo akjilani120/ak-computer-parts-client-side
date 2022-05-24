@@ -31,8 +31,9 @@ const MyProfile = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-                toast("Your profile update is success")
+                if(data){
+                    toast("Your profile update is success")
+                }               
             })
     }
     return (

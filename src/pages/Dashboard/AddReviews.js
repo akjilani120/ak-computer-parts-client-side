@@ -4,12 +4,13 @@ import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import './AddReviews.css'
 const AddReviews = () => {
+    let reviewsError;
     const [user] = useAuthState(auth)
     const handleSubmit = event =>{
         event.preventDefault()
         const  reviewsPerson =user.displayName
         const productName= event.target.product.value
-        const reviewsPoint= event.target.reviews.value
+        const reviewsPoint= event.target.reviews.value        
         const commite= event.target.commite.value
         const reviews ={
             person : reviewsPerson,
@@ -49,9 +50,10 @@ const AddReviews = () => {
                                 </div>
                                 <div class="form-control">
                                     <label class="label">
-                                        <span class="label-text">Add Rating Point number</span>
+                                        <span class="label-text">Add Rating Point number(1 - 5)</span>
                                     </label>
-                                    <input type="text" name='reviews' placeholder="Add Point" class="input input-bordered" />
+                                    <input type="text" name='reviews' placeholder="Add Point" min="1" max="5"  class="input input-bordered" />
+                                    <p className='text-red-500'>{reviewsError}</p>
                                 </div>
                                 <div class="form-control">
                                     <label class="label">
