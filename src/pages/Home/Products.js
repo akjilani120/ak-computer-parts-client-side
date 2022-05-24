@@ -8,7 +8,7 @@ const Products = () => {
     .then(res => res.json())
     .then(data => setProducts(data))
     },[products])
-    const mainProduct = products.slice(0, 6)
+   
     return (
         <div className='px-12' >
            
@@ -18,7 +18,7 @@ const Products = () => {
             
          <div className='grid  lg:grid-cols-2 gap-4' >
             {
-                mainProduct.map(product => <Product product={product} key={product._id}></Product>)
+                products.map(product => <Product product={product} key={product._id}></Product>)
             }
          </div>
         </div>

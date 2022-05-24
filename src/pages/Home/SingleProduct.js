@@ -4,11 +4,11 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
+import { signOut } from 'firebase/auth';
 
 const SingleProduct = () => {
-    const inputRef = useRef('')
-    const quantity = inputRef.current.value
-   
+  
+    
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [user] = useAuthState(auth)
     const { id } = useParams()
@@ -22,7 +22,14 @@ const SingleProduct = () => {
                "authorization" : `Bearer ${localStorage.getItem("accessToken")}`
             },
            })
-            .then(res => res.json())
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    signOut(auth);
+                    localStorage.removeItem("accessToken")
+                }
+                return res.json()
+            }
+)
             .then(data => setProduct(data))
     }, [id])
     const onSubmit = data => {
@@ -84,7 +91,7 @@ const SingleProduct = () => {
                                     <input type='text' class="input input-bordered input-info w-full max-w-xs my-2" value={user.displayName} {...register("name")} />
                                     <input type='email' class="input input-bordered input-info w-full max-w-xs my-2" value={user.email} {...register("email")} />
                                     <label className='label'>
-                                        <input ref={inputRef} class="input input-bordered input-info w-full max-w-xs my-2" type="text"  {...register("quantity", { min: minimunQuantity, max: maximumQuantity })} placeholder="Add quantiry" />
+                                        <input  class="input input-bordered input-info w-full max-w-xs my-2" type="text"  {...register("quantity", { min: minimunQuantity, max: maximumQuantity })} placeholder="Add quantiry" />
                                         <label class="label ">
 
 

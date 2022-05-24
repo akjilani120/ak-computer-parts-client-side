@@ -3,17 +3,12 @@ import React, { useEffect, useState } from 'react';
 const Reviews = () => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch("http://localhost:5000/reviews", {
-            method:"GET",
-            headers: {
-               "authorization" : `Bearer ${localStorage.getItem("accessToken")}`
-            },
-           })
+        fetch("http://localhost:5000/reviews", )
             .then(res => res.json())
-            .then(data => {
-               
+            .then(data => {   
+                console.log(data)            
                 setReviews(data)})
-    }, [reviews])
+    }, [])
     return (
         <div className='my-10 px-12'>
              <h1 className='text-5xl text-secondary  my-5'>Customar Reviews</h1>

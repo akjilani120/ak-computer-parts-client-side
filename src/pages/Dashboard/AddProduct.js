@@ -18,9 +18,9 @@ const AddProduct = () => {
         const addProduct = {
             name: name,
             description: description,
-            minimumQuantity: minimum,
+            minimunQuantity: minimum,
             maximumQuantity: maximum,
-            price : price,
+            perUnitPrice : price,
             img: img
         }
   

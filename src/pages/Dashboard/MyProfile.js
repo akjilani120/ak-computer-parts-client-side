@@ -39,7 +39,7 @@ const MyProfile = () => {
     return (
         <div className='flex justify-center items-center mt-5'>
             <div class="card w-9/12 bg-base-100 shadow-xl bg-info ">
-                <h1 className='text-secondary font-bold text-2xl mt-5'>Your Profile and  required  Update</h1>
+                <h1 className='text-secondary font-bold text-2xl mt-5'>Profile and  Update Profile</h1>
                 <div class="card-body">
                     <form onSubmit={handleSubmit}>
                         <div class="form-control mb-5">
