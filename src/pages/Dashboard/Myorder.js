@@ -1,16 +1,19 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 const Myorder = ({order , index}) => {
-    const {productName , price , quantity , userEmail} = order;
-   
+    const {productName , price , quantity , userName , paid , _id} = order;
+    
     return (
         <tr>
         <th>{index + 1}</th>
         <td>{productName}</td>
         <td>{quantity}</td>
         <td>{price}</td>
-        <td>{userEmail}</td>
-        <td><button class="btn btn-xs btn-secondary">Tiny</button></td>
+        <td>{userName}</td>
+        <td>
+          {(price && !paid) && <button className='btn btn-secondary text-white btn-xs'><Link to={`/dashboard/payment/${_id}`}>Payment</Link></button>}
+          {(price && paid) && <span className='btn btn-success text-white btn-xs'>Paid</span>}
+          </td>
         
       </tr>
     );

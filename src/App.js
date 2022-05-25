@@ -22,6 +22,7 @@ import ManageAllOrdars from './pages/Dashboard/ManageAllOrdars';
 import MakeAdmin from './pages/Dashboard/MakeAdmin';
 import ManageProduct from './pages/Dashboard/ManageProduct';
 import RequireAdmin from './pages/Shared/RequireAdmin';
+import Payment from './pages/Dashboard/Payment';
 function App() {
   return (
     <div className="App">
@@ -40,10 +41,14 @@ function App() {
          <Route path='addedProduct' element={<AddProduct></AddProduct>}></Route>
          <Route path='manageAllOrders' element={<ManageAllOrdars></ManageAllOrdars>}></Route>
          <Route path='makeAdmin' element={<MakeAdmin></MakeAdmin>}></Route>
+         <Route path='payment/:payId' element={<Payment></Payment>}></Route>
          <Route path='manageProduct' element={<RequireAdmin>
           <ManageProduct></ManageProduct>
          </RequireAdmin>}></Route>
        </Route>
+       <Route path='/payment' element={
+        <Payment></Payment>
+      }></Route>
        <Route path='/login' element={<Login></Login>}></Route>
        <Route path='/resiger' element={<Resiger></Resiger>}></Route>
        <Route path='/singleProduct/:id' element={<RequireAuth>

@@ -21,7 +21,7 @@ const MyOrders = () => {
             })
             .then(res  => res.json())
             .then( data => {
-                console.log(data)
+                
                 setOrders(data)
             })
         }
@@ -37,10 +37,10 @@ const MyOrders = () => {
                     <thead >
                         <tr className=' border-2 border-info border  text-info '>
                             <th>No</th>
-                            <th>Product Name Name</th>
+                            <th>Product Name</th>
                             <th>Quantity</th>
                             <th>Price</th>
-                            <th>Email</th>
+                            <th>Name </th>
                             <th>Payment</th>
                         </tr>
                     </thead>
