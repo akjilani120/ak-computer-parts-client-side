@@ -38,54 +38,54 @@ const MyProfile = () => {
     }
     return (
         <div className='flex justify-center items-center mt-5'>
-            <div class="card w-9/12 bg-base-100 shadow-xl bg-info ">
+            <div className="card w-9/12 bg-base-100 shadow-xl bg-info ">
                 <h1 className='text-secondary font-bold text-2xl mt-5'>Profile and  Update Profile</h1>
-                <div class="card-body">
+                <div className="card-body">
                     <form onSubmit={handleSubmit}>
-                        <div class="form-control mb-5">
-                            <label class="label">
-                                <span class="label-text text-white text-white">Profile User name</span>
+                        <div className="form-control mb-5">
+                            <label className="label">
+                                <span className="label-text text-white text-white">Profile User name</span>
                             </label>
-                            <input type="text"  name='name' value={user.displayName} placeholder="Add Point" class="input input-bordered text-2xl" disabled />
+                            <input type="text"  name='name' value={user.displayName} placeholder="Add Point" className="input input-bordered text-2xl" disabled />
                         </div>
-                        <div class="form-control mb-5">
-                            <label class="label">
-                                <span class="label-text text-white text-white">Profile User Email</span>
+                        <div className="form-control mb-5">
+                            <label className="label">
+                                <span className="label-text text-white text-white">Profile User Email</span>
                             </label>
-                            <input type="text" name='email' value={user.email} placeholder="Add Point" class="input input-bordered border-secondary border-3 text-xl"  disabled/>
+                            <input type="text" name='email' value={user.email} placeholder="Add Point" className="input input-bordered border-secondary border-3 text-xl"  disabled/>
                         </div>
                         
-                        <div class="flex flex-col w-full mt-5 border-opacity-100 "> 
+                        <div className="flex flex-col w-full mt-5 border-opacity-100 "> 
                          <hr className='bg-white border-2'></hr>                          
-                            <div class="divider text-white border-white" >Update Profile</div>
+                            <div className="divider text-white border-white" >Update Profile</div>
                             <hr className='bg-white border-2'></hr>  
                         </div>
-                        <div class="form-control mb-5">
-                            <label class="label">
-                                <span class="label-text text-white text-white">Add Your education</span>
+                        <div className="form-control mb-5">
+                            <label className="label">
+                                <span className="label-text text-white text-white">Add Your education</span>
                             </label>
-                            <input type="text" name='education'  placeholder="Education" class="input input-bordered"  required  />
+                            <input type="text" name='education'  placeholder="Education" className="input input-bordered"  required  />
                         </div>
-                        <div class="form-control mb-5">
-                            <label class="label">
-                                <span class="label-text text-white text-white">Add your Address</span>
+                        <div className="form-control mb-5">
+                            <label className="label">
+                                <span className="label-text text-white text-white">Add your Address</span>
                             </label>
-                            <input type="text" name='address'  placeholder="Address" class="input input-bordered" required   />
+                            <input type="text" name='address'  placeholder="Address" className="input input-bordered" required   />
                         </div>
-                        <div class="form-control mb-5">
-                            <label class="label">
-                                <span class="label-text text-white text-white">Add your Phone Number</span>
+                        <div className="form-control mb-5">
+                            <label className="label">
+                                <span className="label-text text-white text-white">Add your Phone Number</span>
                             </label>
-                            <input type="text" name='phone'  placeholder="Number" class="input input-bordered"  required  />
+                            <input type="text" name='phone'  placeholder="Number" className="input input-bordered"  required  />
                         </div>
-                        <div class="form-control mb-5">
-                            <label class="label">
-                                <span class="label-text text-white text-white">Add your Image Link</span>
+                        <div className="form-control mb-5">
+                            <label className="label">
+                                <span className="label-text text-white text-white">Add your Image Link</span>
                             </label>
-                            <input type="text" name='image'  placeholder="Image Link" class="input input-bordered" required  />
+                            <input type="text" name='image'  placeholder="Image Link" className="input input-bordered" required  />
                         </div>
-                        <div class=" mt-6">
-                            <input value='Update ' type="submit" class="btn btn-secondary text-white"></input>
+                        <div className=" mt-6">
+                            <input value='Update ' type="submit" className="btn btn-secondary text-white"></input>
                         </div>
                     </form>
                 </div>

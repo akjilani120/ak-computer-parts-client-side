@@ -9,18 +9,18 @@ const Dashboard = () => {
     const [admin] = UseAdmin(user)
     return (
 
-        <div class="drawer drawer-mobile">
-            <input id="dash-drawer" type="checkbox" class="drawer-toggle" />
-            <div class="drawer-content flex flex-col ">
+        <div className="drawer drawer-mobile">
+            <input id="dash-drawer" type="checkbox" className="drawer-toggle" />
+            <div className="drawer-content flex flex-col ">
             <h1 className='text-5xl text-secondary font-bold mb-10'>Welcome your Dashboard</h1>
 
             <Outlet />
               
 
             </div>
-            <div class="drawer-side ">
-                <label for="dash-drawer " class="drawer-overlay"></label>
-                <ul class="menu p-4 overflow-y-auto w-60  bg-base-100 text-base-content border-1 border border-info">
+            <div className="drawer-side ">
+                <label for="dash-drawer " className="drawer-overlay"></label>
+                <ul className="menu p-4 overflow-y-auto w-60  bg-base-100 text-base-content border-1 border border-info">
                     
                 <li><Link  to="/dashboard">My Profile</Link></li>
                 <li>{ !admin && <Link to="/dashboard/addReviews">Add Reviews</Link>}</li>

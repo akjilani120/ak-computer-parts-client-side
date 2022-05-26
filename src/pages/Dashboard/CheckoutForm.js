@@ -1,15 +1,18 @@
 
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { signOut } from 'firebase/auth';
 import React, { useState , useEffect} from 'react';
+import auth from '../../firebase.init';
 
 const CheckoutForm = ({data}) => {
-    const {price , userName , userEmail , productName} =  data
+    const {price , userName , userEmail} =  data
    
     const stripe = useStripe();
     const elements = useElements();
     const [payError , setPayError] = useState('')
     const [success , setSuccess] = useState('')
     const [transId , setTransId] = useState('')
+    const [process , setProcess] = useState(false)
     const [clientSecret , setClientSecret] = useState("")
     useEffect(() =>{
         fetch("http://localhost:5000/create-payment-intent" ,{
@@ -20,7 +23,15 @@ const CheckoutForm = ({data}) => {
             },
             body : JSON.stringify({price})
         })
-        .then(res => res.json())
+        .then(res => {
+            if (res.status === 401 || res.status === 403) {
+                alert("Fobidden Access. Please Login then come back this page")
+                signOut(auth)
+                localStorage.removeItem("accessToken")
+            }
+            return res.json()
+        }
+        )
         .then( data => {
            if(data?.clientSecret){
                setClientSecret(data.clientSecret)
@@ -42,7 +53,8 @@ const CheckoutForm = ({data}) => {
         })
        
             setPayError(error?.message || "")
-            
+            setSuccess("")
+            setProcess("true")
             const {paymentIntent, error: intError} = await stripe.confirmCardPayment(
                 clientSecret,
                 
@@ -60,12 +72,13 @@ const CheckoutForm = ({data}) => {
 
             if(intError){
                 setPayError(intError?.message)
+                setProcess(false)
             }else{
-                                
+                setTransId(paymentIntent.id)              
                 setSuccess("Congratulation !! Your payment is success")
                 console.log(paymentIntent)
             }
-            setTransId(paymentIntent)
+           
     }
     return (
         <div>

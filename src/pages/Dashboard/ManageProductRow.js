@@ -8,8 +8,8 @@ const ManageProductRow = ({ product, index ,refetch , handleDelete, setId}) => {
     return (
         <tr>
             <th>{index + 1}</th>
-            <td><div class="avatar">
-                <div class="w-20 rounded">
+            <td><div className="avatar">
+                <div className="w-20 rounded">
                     <img src={img} alt="product image" />
                 </div>
             </div>
@@ -17,9 +17,9 @@ const ManageProductRow = ({ product, index ,refetch , handleDelete, setId}) => {
             <td>{name}</td>           
 
             <td>  
-                <label   onClick={() => setId(_id)} for="delete-btn" class="btn btn-error modal-button font-bold text-white">Delete</label>
+                <label   onClick={() => setId(_id)} for="delete-btn" className="btn btn-error modal-button font-bold text-white">Delete</label>
        
-                {/* <button  > delete</button> */}
+               
             </td>
         </tr >
     );

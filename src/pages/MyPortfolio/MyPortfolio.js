@@ -5,8 +5,8 @@ const MyPortfolio = () => {
         <div className=' bg-info'>
             <h1 className='text-5xl text-secondary py-10 underline border-secondary'>MY IDENTY</h1>
             <div className='flex justify-center  w-full pb-10 '>
-                <div class="overflow-x-auto ">
-                    <table class="table w-full border border-info ">
+                <div className="overflow-x-auto ">
+                    <table className="table w-full border border-info ">
 
                         <thead>
                             <tr>

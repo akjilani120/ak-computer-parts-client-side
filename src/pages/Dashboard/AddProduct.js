@@ -42,49 +42,49 @@ const AddProduct = () => {
     return (
         <div>
             <div className='flex justify-center items-center mt-5'>
-                <div class="card w-9/12 bg-base-100 shadow-xl bg-info ">
+                <div className="card w-9/12 bg-base-100 shadow-xl bg-info ">
                     <h1 className='text-secondary font-bold text-2xl mt-5'>Add Product</h1>
-                    <div class="card-body">
+                    <div className="card-body">
                         <form onSubmit={handleSubmit}>
-                            <div class="form-control mb-5">
-                                <label class="label">
-                                    <span class="label-text text-white text-white">Add Product Name</span>
+                            <div className="form-control mb-5">
+                                <label className="label">
+                                    <span className="label-text text-white text-white">Add Product Name</span>
                                 </label>
-                                <input type="text" name='name' placeholder="Product Name" class="input input-bordered"  required/>
+                                <input type="text" name='name' placeholder="Product Name" className="input input-bordered"  required/>
                             </div>
-                            <div class="form-control mb-5">
-                                <label class="label">
-                                    <span class="label-text text-white text-white">Add Description</span>
+                            <div className="form-control mb-5">
+                                <label className="label">
+                                    <span className="label-text text-white text-white">Add Description</span>
                                 </label>
-                                <input type="text" name='description' placeholder="Description" class="input input-bordered"  required/>
+                                <input type="text" name='description' placeholder="Description" className="input input-bordered"  required/>
                             </div>
-                            <div class="form-control mb-5">
-                                <label class="label">
-                                    <span class="label-text text-white text-white">Add Maximum quaity</span>
+                            <div className="form-control mb-5">
+                                <label className="label">
+                                    <span className="label-text text-white text-white">Add Maximum quaity</span>
                                 </label>
-                                <input type="text" name='maximum' placeholder="Maximum Quantity" class="input input-bordered" required />
+                                <input type="text" name='maximum' placeholder="Maximum Quantity" className="input input-bordered" required />
                             </div>
-                            <div class="form-control mb-5">
-                                <label class="label">
-                                    <span class="label-text text-white text-white">Add Minimum quaity</span>
+                            <div className="form-control mb-5">
+                                <label className="label">
+                                    <span className="label-text text-white text-white">Add Minimum quaity</span>
                                 </label>
-                                <input type="text" name='minimum' placeholder="Minimum Quantity" class="input input-bordered"  required/>
+                                <input type="text" name='minimum' placeholder="Minimum Quantity" className="input input-bordered"  required/>
                             </div>
                            
-                            <div class="form-control mb-5">
-                                <label class="label">
-                                    <span class="label-text text-white text-white">Add Per Unite  price</span>
+                            <div className="form-control mb-5">
+                                <label className="label">
+                                    <span className="label-text text-white text-white">Add Per Unite  price</span>
                                 </label>
-                                <input type="text" name='price' placeholder="Per Unite Price" class="input input-bordered"  required/>
+                                <input type="text" name='price' placeholder="Per Unite Price" className="input input-bordered"  required/>
                             </div>
-                            <div class="form-control mb-5">
-                                <label class="label">
-                                    <span class="label-text text-white text-white">Add your Image Link</span>
+                            <div className="form-control mb-5">
+                                <label className="label">
+                                    <span className="label-text text-white text-white">Add your Image Link</span>
                                 </label>
-                                <input type="text" name='image' placeholder="Image Link" class="input input-bordered" required />
+                                <input type="text" name='image' placeholder="Image Link" className="input input-bordered" required />
                             </div>
-                            <div class=" mt-6">
-                                <input value='ADD' type="submit" class="btn btn-secondary text-white px-12 py-4"></input>
+                            <div className=" mt-6">
+                                <input value='ADD' type="submit" className="btn btn-secondary text-white px-12 py-4"></input>
                             </div>
                         </form>
                     </div>

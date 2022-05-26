@@ -5,6 +5,7 @@ import auth from '../../firebase.init';
 import Loading from '../Shared/Loading'
 import Myorder from './Myorder';
 import  { useEffect, useState } from 'react';
+import { signOut } from 'firebase/auth';
 const MyOrders = () => {
     const [orders , setOrders] = useState()
     const [user] = useAuthState(auth)   
@@ -19,7 +20,15 @@ const MyOrders = () => {
                     "authorization": `Bearer ${localStorage.getItem("accessToken")}`
                 },
             })
-            .then(res  => res.json())
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    alert("Fobidden Access. Please Login then come back this page")
+                    signOut(auth)
+                    localStorage.removeItem("accessToken")
+                }
+                return res.json()
+            }
+            )
             .then( data => {
                 
                 setOrders(data)
@@ -32,8 +41,8 @@ const MyOrders = () => {
     return (
         <div className='bg-base-200  px-10 py-5 '>
             <h1 className='text-5xl font-bold text-info  underline decoration-info'>My Purshes Product </h1>
-            <div class="overflow-x-auto mt-8">
-                <table class="table w-full">                   
+            <div className="overflow-x-auto mt-8">
+                <table className="table w-full">                   
                     <thead >
                         <tr className=' border-2 border-info border  text-info '>
                             <th>No</th>

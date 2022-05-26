@@ -1,4 +1,6 @@
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
+import auth from '../../firebase.init';
 
 const UseAdmin = (user) => {
     const [admin , setAdmin] = useState(true)
@@ -11,7 +13,15 @@ const UseAdmin = (user) => {
                 "authorization": `Bearer ${localStorage.getItem("accessToken")}`
             },
         })
-        .then(res => res.json())
+        .then(res => {
+            if (res.status === 401 || res.status === 403) {
+                alert("Fobidden Access. Please Login then come back this page")
+                signOut(auth)
+                localStorage.removeItem("accessToken")
+            }
+            return res.json()
+        }
+        )
         .then(data =>{            
             setAdmin(data)
             setAdminLoading(false)

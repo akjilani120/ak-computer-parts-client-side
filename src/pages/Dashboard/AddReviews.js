@@ -33,37 +33,37 @@ const AddReviews = () => {
     return (
         <div className=''>
            
-            <div class="hero min-h-screen bg-base-200">
-                <div class="hero-content flex-col lg:flex-row-reverse">
-                    <div class="text-center  lg:text-left">
+            <div className="hero min-h-screen bg-base-200">
+                <div className="hero-content flex-col lg:flex-row-reverse">
+                    <div className="text-center  lg:text-left">
                     <h1 className='text-5xl text-info font-bold '>Customers  Reviews</h1>
-                        <p class="py-6">One of your comments is very much to us. We need to know what our parts are like. If it feels good then make good comments and give more rating points</p>
+                        <p className="py-6">One of your comments is very much to us. We need to know what our parts are like. If it feels good then make good comments and give more rating points</p>
                     </div>
-                    <div class="card flex-shrink-0 w-96 max-w-sm shadow-2xl bg-base-100">
-                        <div class="card-body">
+                    <div className="card flex-shrink-0 w-96 max-w-sm shadow-2xl bg-base-100">
+                        <div className="card-body">
                             <form onSubmit={ handleSubmit}> 
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Add Your Product Name</span>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Add Your Product Name</span>
                                     </label>
-                                    <input type="text" name='product' placeholder="Prduct Name" class="input input-bordered" />
+                                    <input type="text" name='product' placeholder="Prduct Name" className="input input-bordered" />
                                 </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Add Rating Point number(1 - 5)</span>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Add Rating Point number(1 - 5)</span>
                                     </label>
-                                    <input type="text" name='reviews' placeholder="Add Point" min="1" max="5"  class="input input-bordered" />
+                                    <input type="text" name='reviews' placeholder="Add Point" min="1" max="5"  className="input input-bordered" />
                                     <p className='text-red-500'>{reviewsError}</p>
                                 </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Add Commite </span>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Add Commite </span>
                                     </label>
                                     <textarea name='commite' className='border rounder p-5' rows='5' cols="10"  placeholder="Add Your commite"></textarea>
 
                                 </div>
-                                <div class=" mt-6">
-                                    <input value='ADD Reviews' type="submit" class="btn btn-primary"></input>
+                                <div className=" mt-6">
+                                    <input value='ADD Reviews' type="submit" className="btn btn-primary"></input>
                                 </div>
                             </form>
                         </div>

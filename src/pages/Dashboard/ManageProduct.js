@@ -27,8 +27,8 @@ const ManageProduct = () => {
     return (
         <div className='bg-base-200  px-10 py-5 '>
             <h1 className='text-5xl font-bold text-info  underline decoration-info'>My Purshes Product </h1>
-            <div class="overflow-x-auto mt-8">
-                <table class="table w-full">
+            <div className="overflow-x-auto mt-8">
+                <table className="table w-full">
                     <thead >
                         <tr className=' border-2 border-info border  text-info '>
                             <th>No</th>
@@ -44,13 +44,13 @@ const ManageProduct = () => {
                     </tbody>
                     
                 </table>
-                <input type="checkbox" id="delete-btn" class="modal-toggle" />
-                <div class="modal modal-bottom sm:modal-middle ">
-                    <div class="modal-box bg-info text-white">
-                        <h3 class="font-bold text-lg w-50">Are you sure Delete your product ? </h3>
-                        <label for="delete-btn" class="btn btn-secondary  text-white btn-sm btn-circle absolute right-2 top-2">✕</label>                        
-                        <div class="modal-action">
-                            <label for="delete-btn" onClick={() =>handleDelete(id)} class="btn btn-error text-white font-bold">Confirm Delete</label>
+                <input type="checkbox" id="delete-btn" className="modal-toggle" />
+                <div className="modal modal-bottom sm:modal-middle ">
+                    <div className="modal-box bg-info text-white">
+                        <h3 className="font-bold text-lg w-50">Are you sure Delete your product ? </h3>
+                        <label for="delete-btn" className="btn btn-secondary  text-white btn-sm btn-circle absolute right-2 top-2">✕</label>                        
+                        <div className="modal-action">
+                            <label for="delete-btn" onClick={() =>handleDelete(id)} className="btn btn-error text-white font-bold">Confirm Delete</label>
                         </div>
                     </div>
                 </div> 

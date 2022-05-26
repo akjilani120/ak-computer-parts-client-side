@@ -1,5 +1,7 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 
 const Admin = ({user , index, refetch}) => {
     const {email , role } = user;
@@ -11,10 +13,14 @@ const Admin = ({user , index, refetch}) => {
             },
         })
         .then(res => {
-            if(res.status === 403){
-                toast.error("Failed made admin")
+            if (res.status === 401 || res.status === 403) {
+                alert("Fobidden Access. Please Login then come back this page")
+                signOut(auth)
+                localStorage.removeItem("accessToken")
             }
-           return res.json()})
+            return res.json()
+        }
+        )
         .then(data => {       
            if(data.modifiedCount > 0){
             refetch()    
@@ -27,8 +33,8 @@ const Admin = ({user , index, refetch}) => {
         <tr>
         <th>{index + 1}</th>
         <td>{email}</td>
-        <td>{ role !=="admin" && <button onClick={handleMakeAdmin} class="btn btn-xs btn-secondary text-white">Add admin</button>}</td>
-        <td><button class="btn btn-xs btn-error text-white">Revome admin</button></td>
+        <td>{ role !=="admin" && <button onClick={handleMakeAdmin} className="btn btn-xs btn-secondary text-white">Add admin</button>}</td>
+        <td><button className="btn btn-xs btn-error text-white">Revome admin</button></td>
     </tr>
     );
 };

@@ -52,23 +52,23 @@ const Login = () => {
                    
                     <div className="text-left ">
 
-                        <label class="label">
-                            <span class="label-text">Email</span>
+                        <label className="label">
+                            <span className="label-text">Email</span>
 
                         </label>
                         <input  type="email" className='input input-info w-full input-bordered w-full max-w-xs' {...register("email", { required: true })}  />
-                        <label class="label">
-                            <span class="label-text-alt text-red-500">{errors.email?.type === 'required' && "Email is required"}</span>
+                        <label className="label">
+                            <span className="label-text-alt text-red-500">{errors.email?.type === 'required' && "Email is required"}</span>
 
                         </label>
                     </div>
                     <div className="text-left">
-                        <label class="label">
-                            <span class="label-text">Password</span>
+                        <label className="label">
+                            <span className="label-text">Password</span>
                         </label>
-                        <input type="password" {...register("password", { required: true })} class="input input-info input-bordered  w-screen max-w-xs" />
-                        <label class="label">
-                            <span class="label-text-alt text-red-500">{errors.password?.type === 'required' && "Password is required"}</span>
+                        <input type="password" {...register("password", { required: true })} className="input input-info input-bordered  w-screen max-w-xs" />
+                        <label className="label">
+                            <span className="label-text-alt text-red-500">{errors.password?.type === 'required' && "Password is required"}</span>
                         </label>
                         <p className=''>If have not an account? <button onClick={handleNavigate} className='text-primary font-bold'>Sign Up</button></p>
                         <p className='text-red-500'>{errorMessage}</p>
@@ -76,10 +76,10 @@ const Login = () => {
                     <input className='btn btn-info btn-block text-white mt-5' type="submit" value="Login" />
                 </form>
 
-                <div class="flex flex-col w-full border-opacity-50">
+                <div className="flex flex-col w-full border-opacity-50">
                    
-                    <div class="divider">OR</div>
-                    <button onClick={handleGoogle} class=" h-15 flex  rounded-box place-items-center btn btn-info text-white"> 
+                    <div className="divider">OR</div>
+                    <button onClick={handleGoogle} className=" h-15 flex  rounded-box place-items-center btn btn-info text-white"> 
                     <img className='w-50 h-10 mr-5' src={googleIcon}/> Google Sign up</button>
                 </div>
 
