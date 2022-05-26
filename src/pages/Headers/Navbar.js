@@ -13,7 +13,9 @@ const Navbar = () => {
         <li><Link to="/home">Home</Link></li>,
         <li><Link to="/about">About</Link></li>,
         <li><Link to="/blog">Blog</Link></li>,
+        <li><Link to="/myPortfolio">My Portfolio</Link></li>,
         <li><Link to="/dashboard">Dashboard</Link></li>,
+        
         <li>{ user?  
             <button onClick={logout} className='btn btn-secondary text-white'>Sign Out</button> :
             <Link to="/login">Login</Link>}</li>,

@@ -23,6 +23,7 @@ import MakeAdmin from './pages/Dashboard/MakeAdmin';
 import ManageProduct from './pages/Dashboard/ManageProduct';
 import RequireAdmin from './pages/Shared/RequireAdmin';
 import Payment from './pages/Dashboard/Payment';
+import MyPortfolio from './pages/MyPortfolio/MyPortfolio';
 function App() {
   return (
     <div className="App">
@@ -50,6 +51,7 @@ function App() {
         <Payment></Payment>
       }></Route>
        <Route path='/login' element={<Login></Login>}></Route>
+       <Route path='/myPortfolio' element={<MyPortfolio></MyPortfolio>}></Route>
        <Route path='/resiger' element={<Resiger></Resiger>}></Route>
        <Route path='/singleProduct/:id' element={<RequireAuth>
          <SingleProduct></SingleProduct>
