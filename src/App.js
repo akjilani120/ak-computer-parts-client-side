@@ -39,17 +39,22 @@ function App() {
          <Route index element={<MyProfile></MyProfile>}></Route>
          <Route path='addReviews' element={<AddReviews></AddReviews>}></Route>
          <Route path='myOrders' element={<MyOrders></MyOrders>}></Route>
-         <Route path='addedProduct' element={<AddProduct></AddProduct>}></Route>
-         <Route path='manageAllOrders' element={<ManageAllOrdars></ManageAllOrdars>}></Route>
-         <Route path='makeAdmin' element={<MakeAdmin></MakeAdmin>}></Route>
-         <Route path='payment/:payId' element={<Payment></Payment>}></Route>
+         <Route path='addedProduct' element={<RequireAdmin>
+          <AddProduct></AddProduct>
+         </RequireAdmin>}></Route>
+         <Route path='manageAllOrders' element={<RequireAdmin>
+          <ManageAllOrdars></ManageAllOrdars>
+         </RequireAdmin>}></Route>
+         <Route path='makeAdmin' element={<RequireAdmin>
+          <MakeAdmin></MakeAdmin>
+         </RequireAdmin>}></Route>
+         <Route path='payment/:payId' element={<RequireAdmin>
+          <Payment></Payment>
+         </RequireAdmin>}></Route>
          <Route path='manageProduct' element={<RequireAdmin>
           <ManageProduct></ManageProduct>
          </RequireAdmin>}></Route>
-       </Route>
-       <Route path='/payment' element={
-        <Payment></Payment>
-      }></Route>
+       </Route>       
        <Route path='/login' element={<Login></Login>}></Route>
        <Route path='/myPortfolio' element={<MyPortfolio></MyPortfolio>}></Route>
        <Route path='/resiger' element={<Resiger></Resiger>}></Route>

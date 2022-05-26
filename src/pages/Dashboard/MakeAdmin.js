@@ -1,11 +1,13 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useQuery } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 import Admin from './Admin';
 
 const MakeAdmin = () => {
+    const navigate = useNavigate("")
     const { isLoading, error, data: users, refetch } = useQuery('admin', () =>
         fetch('http://localhost:5000/token', {
             method: "GET",
@@ -15,7 +17,7 @@ const MakeAdmin = () => {
         })
             .then(res => {
                 if (res.status === 401 || res.status === 403) {
-                    signOut(auth);
+                    signOut(auth)
                     localStorage.removeItem("accessToken")
                 }
                 return res.json()
