@@ -1,18 +1,40 @@
-.business-overflow{
-    background-color: rgba(10, 10, 10, 0.486);
-    height: 70vh;
-    width: 100%;
+.countUp{
+    background-size: cover;
+    background-position:top center;
+    background-repeat: no-repeat;
+    height: 60vh;
     background-attachment: fixed;
 }
-.business-bg{
-    height: 70vh;
+.count-overflow{
+    background-color: rgba(17, 16, 16, 0.384);
+    height: 60vh;
+  
 }
-
-@media screen and (max-width:850px) {
-    .business-bg{
-        height: 100vh;
+.count-part{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+}
+.count-number{
+    width: 20%;
+    color: white;
+    font-weight: 800;
+    margin: 10px;
+}
+.count-number h4{
+    font-size: 25px;
+}
+.count-number h4 span{
+    color: #f8a428;
+}
+@media screen and (max-width:768px) {
+    .countUp , .count-overflow{
+        height: 80vh;
     }
-    .business-overflow{
-        height: 100vh; 
+    .count-number{
+        width: 40%;
     }
+   
 }

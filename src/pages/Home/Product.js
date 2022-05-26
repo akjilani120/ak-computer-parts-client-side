@@ -8,7 +8,7 @@ const Product = ({ product }) => {
         navigate(`/singleProduct/${id}`)
     }
     return (
-        <div class="card lg:card-side bg-base-100 shadow-xl text-left p-10 lg:p-0">
+        <div class="card lg:card-side bg-base-100 shadow-xl text-left p-10 lg:p-0 border border-info  mb-10">
             <figure className='lg:w-2/5'><img  src={img} alt="Movie"/></figure>
             <div class="card-body lg:w-3/5 ">
                 <h2 class=""><b>Name :</b> {name}</h2>

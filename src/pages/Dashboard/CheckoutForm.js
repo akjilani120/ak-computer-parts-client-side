@@ -45,15 +45,17 @@ const CheckoutForm = ({data}) => {
             setSuccess("")
             const {paymentIntent, error: intError} = await stripe.confirmCardPayment(
                 clientSecret,
-                {
-                  payment_method: {
-                    card: card,
-                    billing_details: {
-                      name: userName,
-                      email: userEmail
-                    },
-                  },
-                },
+                
+                    {
+                        payment_method: {
+                          card: card,
+                          billing_details: {
+                            name: userName,
+                            email: userEmail
+                          },
+                        },
+                      },
+                
               );
 
             if(intError){
