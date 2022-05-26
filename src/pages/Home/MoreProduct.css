@@ -1,0 +1,10 @@
+.map{
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    background-repeat: no-repeat;
+}
+.map-overflow{
+    background-color: rgba(8, 8, 8, 0.61);
+    height: 70vh;
+}

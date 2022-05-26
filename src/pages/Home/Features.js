@@ -6,6 +6,7 @@ const Features = () => {
            
             <div class="hero-content flex-col  lg:flex-row">
                 <div class="h-96 w-2/3 carousel carousel-vertical rounded-box ">
+                   
                     <div class="carousel-item h-full">
                         <img className='w-96' src="https://c1.neweggimages.com/ProductImageCompressAll300/83-360-293-10.jpg" />
                     </div>
