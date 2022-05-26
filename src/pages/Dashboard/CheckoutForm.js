@@ -42,7 +42,7 @@ const CheckoutForm = ({data}) => {
         })
        
             setPayError(error?.message || "")
-            setSuccess("")
+            
             const {paymentIntent, error: intError} = await stripe.confirmCardPayment(
                 clientSecret,
                 
@@ -61,9 +61,9 @@ const CheckoutForm = ({data}) => {
             if(intError){
                 setPayError(intError?.message)
             }else{
-                setPayError("")                
+                                
                 setSuccess("Congratulation !! Your payment is success")
-                
+                console.log(paymentIntent)
             }
             setTransId(paymentIntent)
     }
