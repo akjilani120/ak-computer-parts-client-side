@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 const Myorder = ({order , index}) => {
-    const {productName , price , quantity , userName , paid , _id} = order;
-    
+    const {productName , price , quantity , userName , paid , _id , transctionId} = order;
+    console.log(order)
     return (
         <tr>
         <th>{index + 1}</th>
@@ -12,7 +12,10 @@ const Myorder = ({order , index}) => {
         <td>{userName}</td>
         <td>
           {(price && !paid) && <button className='btn btn-secondary text-white btn-xs'><Link to={`/dashboard/payment/${_id}`}>Payment</Link></button>}
-          {(price && paid) && <span className='btn btn-success text-white btn-xs'>Paid</span>}
+          {(price && paid) && <div>
+            <span className='btn btn-success text-white btn-xs'>Paid</span>
+            <p className="text-secondary">{transctionId}</p>
+            </div>}
           </td>
         
       </tr>

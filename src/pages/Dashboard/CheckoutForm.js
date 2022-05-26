@@ -5,7 +5,7 @@ import React, { useState , useEffect} from 'react';
 import auth from '../../firebase.init';
 
 const CheckoutForm = ({data}) => {
-    const {price , userName , userEmail} =  data
+    const { _id ,price , userName , userEmail} =  data
    
     const stripe = useStripe();
     const elements = useElements();
@@ -74,9 +74,34 @@ const CheckoutForm = ({data}) => {
                 setPayError(intError?.message)
                 setProcess(false)
             }else{
-                setTransId(paymentIntent.id)              
+                setTransId(paymentIntent.id)       
+                console.log(paymentIntent)       
                 setSuccess("Congratulation !! Your payment is success")
-                console.log(paymentIntent)
+                const payment ={
+                    ordersId : _id,
+                    transctionId : paymentIntent.id
+                }
+                fetch(`http://localhost:5000/orders/${_id}` ,{
+                    method:"PUT", 
+                    headers:{
+                        "content-type" :"application/json",
+                        "authorization": `Bearer ${localStorage.getItem("accessToken")}`
+                    },
+                    body : JSON.stringify(payment)
+                })
+                .then(res => {
+                    if (res.status === 401 || res.status === 403) {
+                        alert("Fobidden Access. Please Login then come back this page")
+                        signOut(auth)
+                        localStorage.removeItem("accessToken")
+                    }
+                    return res.json()
+                }
+                )
+                .then( data => {
+                  
+                   setProcess(false)
+                })
             }
            
     }
