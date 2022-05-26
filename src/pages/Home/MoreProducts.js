@@ -8,7 +8,7 @@ const MoreProducts = () => {
             <h1 class="text-5xl font-bold text-white pt-10">Contact Us</h1>
             <div class="hero ">
             <div class="hero-content flex-col lg:flex-row-reverse text-white">
-                <img  src={mapImage} class="max-w-sm rounded-lg shadow-2xl w-96 h-96 ml-10" />
+                <img  src={mapImage} class="max-w-sm rounded-lg shadow-2xl w-screen h-96 ml-10" />
                 <div>
                    
                     <div class="form-control  ">
@@ -34,7 +34,7 @@ const MoreProducts = () => {
                             <span class="label-text text-white">Message</span>
                         </label>
                         <label class="input-group">
-                            <span>Message</span>
+                            <span>Text</span>
                             <textarea  className=' w-96 px-5 pt-5' placeholder='message' cols='25' rows ="10"></textarea>
                         </label>
                     </div>
