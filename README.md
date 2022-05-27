@@ -1,6 +1,6 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+This my website link and click here [Computer parts house](https://ak-comput-parts-house.web.app/).
 
 * The website name is  computer parts house.
 * HTML css react  mongodb etc have been used to create the web site
