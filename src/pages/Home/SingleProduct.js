@@ -7,8 +7,8 @@ import { toast } from 'react-toastify';
 import { signOut } from 'firebase/auth';
 
 const SingleProduct = () => {
-  
-    
+
+
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [user] = useAuthState(auth)
     const { id } = useParams()
@@ -16,12 +16,12 @@ const SingleProduct = () => {
     const { img, name, description, minimunQuantity, maximumQuantity, perUnitPrice, _id } = product
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${id}`,{
-            method:"GET",
+        fetch(`http://localhost:5000/products/${id}`, {
+            method: "GET",
             headers: {
-               "authorization" : `Bearer ${localStorage.getItem("accessToken")}`
+                "authorization": `Bearer ${localStorage.getItem("accessToken")}`
             },
-           })
+        })
             .then(res => {
                 if (res.status === 401 || res.status === 403) {
                     signOut(auth);
@@ -29,12 +29,11 @@ const SingleProduct = () => {
                 }
                 return res.json()
             }
-)
+            )
             .then(data => setProduct(data))
     }, [id])
     const onSubmit = data => {
-        const priceField = parseInt(perUnitPrice) * data.quantity;
-
+        const priceField = parseInt(perUnitPrice) * data.quantity;        
         const purchase = {
             userName: data.name,
             userEmail: data.email,
@@ -53,15 +52,14 @@ const SingleProduct = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if (data) {                   
+                if (data) {
                     toast.success("Your purshes successfully ")
                 } else {
                     toast.error("Your purshes not successfully")
                 }
 
-
-
             })
+        
     };
     return (
         <div >
@@ -79,7 +77,7 @@ const SingleProduct = () => {
 
                         <label for="parshes-modal" className="btn btn-secondary text-white modal-button">Purchase</label>
                         <input type="checkbox" id="parshes-modal" className="modal-toggle  z-40" />
-                        <div className="modal z-40 " style={{zIndex:"1"}}>
+                        <div className="modal z-40 " style={{ zIndex: "1" }}>
                             <div className="modal-box bg-info  z-40">
                                 <label for="parshes-modal" className="btn btn-secondary btn-sm btn-circle absolute right-2 top-2">✕</label>
                                 <h3 className='text-center text-secondary my-2 text-2xl font-bold'>ORDAR NOW</h3>
@@ -91,7 +89,7 @@ const SingleProduct = () => {
                                     <input type='text' className="input input-bordered input-info w-full max-w-xs my-2" value={user.displayName} {...register("name")} />
                                     <input type='email' className="input input-bordered input-info w-full max-w-xs my-2" value={user.email} {...register("email")} />
                                     <label className='label'>
-                                        <input  className="input input-bordered input-info w-full max-w-xs my-2" type="text"  {...register("quantity", { min: minimunQuantity, max: maximumQuantity })} placeholder="Add quantiry" />
+                                        <input className="input input-bordered input-info w-full max-w-xs my-2" type="text"  {...register("quantity", { min: minimunQuantity, max: maximumQuantity })} placeholder="Add quantiry" />
                                         <label className="label ">
 
 
@@ -103,7 +101,8 @@ const SingleProduct = () => {
                                         <span className='text-red-500 font-bold'>{errors.quantity?.type === 'min' && "Minimum quaity so low to our products"}</span>
                                         <span className='text-red-500 font-bold'>{errors.quantity?.type === 'max' && "Maximum quaity hight to our products"}</span>
                                     </p>
-                                    <input for="parshes-modal" disabled = {errors.quantity?.type === 'min' ||  errors.quantity?.type === 'max'} className='btn btn-secondary px-10 text-white' type='submit' value="Submit" />
+                                    <input for="parshes-modal" disabled={errors.quantity?.type === 'min' || errors.quantity?.type === 'max'} className='btn btn-secondary px-10 text-white' type='submit' value="Submit" />
+
 
                                 </form>
 
