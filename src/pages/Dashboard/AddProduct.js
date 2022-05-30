@@ -24,7 +24,7 @@ const AddProduct = () => {
             img: img
         }
   
-    fetch(`http://localhost:5000/products`, {
+    fetch(`https://sleepy-plains-20248.herokuapp.com/products`, {
         method: "POST",
         headers: {
             'content-type': 'application/json'

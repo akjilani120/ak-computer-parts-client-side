@@ -9,7 +9,7 @@ import Admin from './Admin';
 const MakeAdmin = () => {
     const navigate = useNavigate("")
     const { isLoading, error, data: users, refetch } = useQuery('admin', () =>
-        fetch('http://localhost:5000/token', {
+        fetch('https://sleepy-plains-20248.herokuapp.com/token', {
             method: "GET",
             headers: {
                 "authorization": `Bearer ${localStorage.getItem("accessToken")}`

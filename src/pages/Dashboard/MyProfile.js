@@ -22,7 +22,7 @@ const MyProfile = () => {
             phone:phone,
             img:img
         }
-        fetch(`http://localhost:5000/user/${email}`, {
+        fetch(`https://sleepy-plains-20248.herokuapp.com/user/${email}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

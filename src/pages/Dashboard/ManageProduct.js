@@ -5,14 +5,14 @@ import ManageProductRow from './ManageProductRow';
 const ManageProduct = () => {
     const [id , setId] = useState('')
     const { data: products, isLoading, refetch } = useQuery("products", () =>
-        fetch('http://localhost:5000/products')
+        fetch('https://sleepy-plains-20248.herokuapp.com/products')
             .then(res => res.json())
     )
     if (isLoading) {
         return <Loading></Loading>
     }
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://sleepy-plains-20248.herokuapp.com/products/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())

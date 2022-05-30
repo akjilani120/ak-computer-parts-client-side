@@ -6,7 +6,7 @@ import auth from '../../firebase.init';
 const Admin = ({user , index, refetch}) => {
     const {email , role } = user;
     const handleMakeAdmin =() =>{
-        fetch(`http://localhost:5000/token/admin/${email}`,{
+        fetch(`https://sleepy-plains-20248.herokuapp.com/token/admin/${email}`,{
             method:"PUT",
             headers:{                
                 "authorization": `Bearer ${localStorage.getItem("accessToken")}`

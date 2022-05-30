@@ -14,7 +14,7 @@ const MyOrders = () => {
 
         if(user){
             const email = user.email
-            fetch(`http://localhost:5000/orders?email=${email}`, {
+            fetch(`https://sleepy-plains-20248.herokuapp.com/orders?email=${email}`, {
                 method: "GET",
                 headers: {
                     "authorization": `Bearer ${localStorage.getItem("accessToken")}`

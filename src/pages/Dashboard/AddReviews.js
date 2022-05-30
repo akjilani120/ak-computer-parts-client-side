@@ -18,7 +18,7 @@ const AddReviews = () => {
              ratingPoing :reviewsPoint,
              Comment: commite,
         }
-     fetch('http://localhost:5000/reviews', {
+     fetch('https://sleepy-plains-20248.herokuapp.com/reviews', {
          method:"POST",
          headers:{
              'content-type' : 'application/json'

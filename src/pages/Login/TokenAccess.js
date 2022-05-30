@@ -8,7 +8,7 @@ const TokenAccess = (user) => {
         const currentEmail = {
           email: email
         }
-        fetch(`http://localhost:5000/token/${email}`, {
+        fetch(`https://sleepy-plains-20248.herokuapp.com/token/${email}`, {
           method:"PUT", 
           headers:{
             "content-type" : "application/json",            

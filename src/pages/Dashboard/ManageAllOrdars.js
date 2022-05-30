@@ -10,7 +10,7 @@ const ManageAllOrdars = () => {
     useEffect(() =>{      
            
        
-            fetch('http://localhost:5000/purshes', {
+            fetch('https://sleepy-plains-20248.herokuapp.com/purshes', {
                 method: "GET",
                 headers: {
                     "authorization": `Bearer ${localStorage.getItem("accessToken")}`

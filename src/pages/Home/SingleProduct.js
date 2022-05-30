@@ -16,7 +16,7 @@ const SingleProduct = () => {
     const { img, name, description, minimunQuantity, maximumQuantity, perUnitPrice, _id } = product
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://sleepy-plains-20248.herokuapp.com/products/${id}`, {
             method: "GET",
             headers: {
                 "authorization": `Bearer ${localStorage.getItem("accessToken")}`
@@ -43,7 +43,7 @@ const SingleProduct = () => {
             price: priceField,
             PurshId: _id
         }
-        fetch('http://localhost:5000/orders', {
+        fetch('https://sleepy-plains-20248.herokuapp.com/orders', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
